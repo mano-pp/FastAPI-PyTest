@@ -22,9 +22,9 @@ class UserSchema(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez Adeshina",
-                "email": "abdulazeez@x.com",
-                "password": "weakpassword"
+                "fullname": "A B",
+                "email": "ab@x.com",
+                "password": "ab123"
             }
         }
 
@@ -35,7 +35,7 @@ class UserLoginSchema(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "email": "abdulazeez@x.com",
-                "password": "weakpassword"
+                "email": "ab@x.com",
+                "password": "ab123"
             }
         }

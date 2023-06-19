@@ -48,17 +48,10 @@ async def get_single_post(id: int) -> dict:
 async def read_root() -> dict:
     return {"message": "Welcome to your blog!"}
 
-async def checkUser():
-    user = JWTBearer()
-    return {"user": user.creds}
-
-loggedInUser = Annotated[dict, Depends(checkUser)]
-
 #@app.post("/posts", dependencies=[Depends(JWTBearer())], tags=["posts"])
 @app.post("/posts", tags=["posts"])
-async def add_post(post: PostSchema, user: loggedInUser) -> dict:
+async def add_post(post: PostSchema, user: Annotated[dict, Depends(JWTBearer())]) -> dict:
     print(user)
-    #print(user.user.creds)
     post.id = len(posts) + 1
     posts.append(post.dict())
     return {
